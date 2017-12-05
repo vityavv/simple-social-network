@@ -2,28 +2,27 @@ var http = require("http");
 var url = require("url");
 var fs = require("fs");
 
-var passWebpageURLS = ["./index.html", "./index.js"];
-function readAndWriteFile(filePath, type, res) {
-	fs.readFile(filePath, function(err, data) {
-		if (err) {
-			res.writeHead(404, {"Content-Type": "text/html"});
-			console.log("err");
-			return res.write("404 Not Found");
-		} else {
-			if (type) {
-				res.writeHead(200, {"Content-Type": type});
-			}
-			res.write(data);
-		}
-	});
-}
 function serverfunc(req, res) {
 	var query = url.parse(req.url, true);
-	if (query.pathname == "/index.html" || "/") {
-		readAndWriteFile("./index.html", "text/html", res);
+	if (query.pathname == "/front.html" || query.pathname == "/") {
+		fs.readFile("./front.html", function(error, data) {
+			if (error) {
+				res.writeHead(404, "404 not found", {"Content-Type": "text/html"});
+				return res.end("404 Not Found");
+			}
+			res.write(data);
+			res.end();
+		});
 	}
-	if (query.pathname == "/index.js") {
-		readAndWriteFile("./index.js", null, res);
+	if (query.pathname == "/front.js") {
+		fs.readFile("./front.js", function(error, data) {
+			if (error) {
+				res.writeHead(404, "404 not found", {"Content-Type": "text/html"});
+				return res.end("404 Not Found");
+			}
+			res.write(data);
+			res.end();
+		});
 	}
 	console.log(query.pathname);
 }
