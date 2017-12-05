@@ -39,7 +39,11 @@ function serverfunc(req, res) {
 				}
 			});
 			req.on("end", function() {
-				//TODO: Write API. requestBody is the data recieved.
+				var newdata = JSON.parse(requestBody);
+				if (newdata.postname && newdata.body) {
+					
+				}
+				console.log(newdata);
 			});
 		}
 	}
