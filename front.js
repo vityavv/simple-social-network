@@ -9,9 +9,13 @@ function submit() {
 	}
 	fetch(window.location.origin + "/data.json", {method: "post", body: JSON.stringify(sending)})
 	.then(function(r){
-		return r.json();
+		return [r.json(), r.text()];
 	}).then(function(r){
-		displayPosts(r);
+		if (r[1] == "Not a valid option") {
+			alert("Not a valid option! Please insert a title, body, or both!");
+		} else {
+			displayPosts(r);
+		}
 	});
 }
 function displayPosts(posts) {
