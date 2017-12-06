@@ -48,7 +48,7 @@ function serverfunc(req, res) {
 						}
 						data = JSON.parse(data);
 						data.posts.unshift({title: newdata.title, body: newdata.body});
-						if (data.posts.length > 50) {
+						if (data.posts.length > 1000) {
 							data.posts.pop();
 						}
 						fs.writeFile("./data.json", JSON.stringify(data), function(error) {
