@@ -67,4 +67,4 @@ function serverfunc(req, res) {
 	}
 }
 
-http.createServer(serverfunc).listen(8080);
+http.createServer(serverfunc).listen(process.env.PORT || 8080);
