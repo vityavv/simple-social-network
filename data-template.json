@@ -1,4 +1,8 @@
 {
-	"postnames": ["example"],
-	"example": "example body"
+	"posts": [
+		{
+			"title": "example title",
+			"body": "example body"
+		}
+	]
 }

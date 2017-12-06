@@ -41,7 +41,24 @@ function serverfunc(req, res) {
 			req.on("end", function() {
 				var newdata = JSON.parse(requestBody);
 				if (newdata.postname && newdata.body) {
-					
+					fs.readFile("./data.json", function(error, data) {
+						if (error) {
+							res.writeHead(404, "404 not found", {"Content-Type": "text/html"});
+							return res.end("404 Not Found");
+						}
+						data = JSON.parse(data);
+						data.posts.unshift({title: newdata.postname, body: newdata.body});
+						if (data.posts.length > 50) {
+							data.posts.pop();
+						}
+						fs.writeFile("./data.json", JSON.stringify(data), function(error) {
+							if (error) {
+								return res.end("Oopsies. It died");
+							} else {
+								return res.end(JSON.stringify(data));
+							}
+						});
+					});
 				}
 				console.log(newdata);
 			});
