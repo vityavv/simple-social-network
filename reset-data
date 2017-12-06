@@ -1,0 +1,2 @@
+#To reset the data to the example
+cat data-template.json > data.json
