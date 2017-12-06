@@ -9,12 +9,13 @@ function submit() {
 	}
 	fetch(window.location.origin + "/data.json", {method: "post", body: JSON.stringify(sending)})
 	.then(function(r){
-		return [r.json(), r.text()];
+		return r.json();
 	}).then(function(r){
-		if (r[1] == "Not a valid option") {
-			alert("Not a valid option! Please insert a title, body, or both!");
+		if (r.error) {
+			$("end").innerHTML = "Not a valid option! Please insert a title, body, or both!";
 		} else {
 			displayPosts(r);
+			$("end").innerHTML = " You made a post with the title \"" + sending.title + "\" and the body \"" + sending.body + "\"."
 		}
 	});
 }

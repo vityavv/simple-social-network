@@ -60,7 +60,7 @@ function serverfunc(req, res) {
 						});
 					});
 				} else {
-					return res.end("Not a valid option");
+					return res.end('{"error":"true"}');
 				}
 			});
 		}
