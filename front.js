@@ -15,8 +15,6 @@ function submit() {
 	});
 }
 function displayPosts(posts) {
-	console.log("fetching posts and displaying them");
-	console.log(posts);
 	posts = posts.posts;
 	var postDisplay = "";
 	for (var i = 0; i < posts.length; i++) {
