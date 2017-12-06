@@ -40,14 +40,14 @@ function serverfunc(req, res) {
 			});
 			req.on("end", function() {
 				var newdata = JSON.parse(requestBody);
-				if (newdata.title && newdata.body) {
+				if (newdata.title || newdata.body) {
 					fs.readFile("./data.json", function(error, data) {
 						if (error) {
 							res.writeHead(404, "404 not found", {"Content-Type": "text/html"});
 							return res.end("404 Not Found");
 						}
 						data = JSON.parse(data);
-						data.posts.unshift({title: newdata.title, body: newdata.body});
+						data.posts.unshift({title: newdata.title || "", body: newdata.body || ""});
 						if (data.posts.length > 1000) {
 							data.posts.pop();
 						}
