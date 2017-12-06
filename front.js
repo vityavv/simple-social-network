@@ -7,7 +7,7 @@ function submit() {
 		title: $("title").value,
 		body: $("body").value
 	}
-	fetch("http://localhost:8080/data.json", {method: "post", body: JSON.stringify(sending)})
+	fetch(window.location.origin + "/data.json", {method: "post", body: JSON.stringify(sending)})
 	.then(function(r){
 		return r.json();
 	}).then(function(r){
@@ -27,7 +27,7 @@ function displayPosts(posts) {
 	$("otherposts").innerHTML = postDisplay;
 }
 function fetchAndDisplayPosts(posts) {
-	fetch("http://localhost:8080/data.json")
+	fetch(window.location.origin+"/data.json")
 	.then(function(r){
 		return r.json()
 	}).then(function(r){
