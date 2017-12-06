@@ -64,6 +64,9 @@ function serverfunc(req, res) {
 				}
 			});
 		}
+	} else {
+		res.writeHead(404, "404 not found", {"Content-Type": "text/html"});
+		return res.end("404 Not Found");
 	}
 }
 
