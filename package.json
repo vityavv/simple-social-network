@@ -1,0 +1,19 @@
+{
+  "name": "simple-social-network",
+  "version": "1.0.0",
+  "description": "An extremely simple \"social network\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vityavv/simple-social-network.git"
+  },
+  "author": "Victor Veytsman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vityavv/simple-social-network/issues"
+  },
+  "homepage": "https://github.com/vityavv/simple-social-network#readme"
+}
