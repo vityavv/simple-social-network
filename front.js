@@ -24,7 +24,7 @@ function displayPosts(posts) {
 		posts[i].title = posts[i].title.replace(/\>/g,"&gt;")
 		posts[i].body = posts[i].body.replace(/\</g,"&lt;")
 		posts[i].body = posts[i].body.replace(/\>/g,"&gt;")//Don't XXS me
-		postDisplay += "<h3>" + posts[i].title + "</h3><p>" + posts[i].body + "</p>";
+		postDisplay += "<h3>" + (i+1) + ") " + posts[i].title + "</h3><p>" + posts[i].body + "</p><hr>";
 	}
 	$("otherposts").innerHTML = postDisplay;
 }
