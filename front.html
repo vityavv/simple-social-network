@@ -2,17 +2,20 @@
 <html>
 <head>
 	<title>The simplest social network imaginable</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 	<h1>Victor's simple social network</h1>
 	<p>This is the simplest social network anyone could make. I mean, technically it isn't, but it's pretty close. You can enter the name of your post, and the body of your post. Then, you can see other posts.</p>
-	<p>After 50 posts the oldest post gets removed</p>
-	<h3>Submit a post</h3>
-	Name: <input id="name" /><br>
+	<p>After 1000 posts the oldest post gets removed</p>
+	<h2>Submit a post</h2>
+	Title:<br>
+	<input id="title" /><br>
 	Body:<br>
-	<textarea id="body"></textarea>
+	<textarea id="body"></textarea><br>
+	<button onClick="submit()">Submit</button><br><b id="end"></b>
 	<br><br>
-	<h3>Other posts</h3>
+	<h2>Other posts</h2>
 	<div id="otherposts">
 
 	</div>
